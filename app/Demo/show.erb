@@ -1,0 +1,48 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @demo.avg_user_rating %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @demo.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">AvgUserRating</div>
+            <div class="itemValue"><%= @demo.avg_user_rating %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Description</div>
+            <div class="itemValue"><%= @demo.description %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Keywords</div>
+            <div class="itemValue"><%= @demo.keywords %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Misc</div>
+            <div class="itemValue"><%= @demo.misc %></div>
+          </li>       
+      
+          <li>
+            <div class="itemLabel">Name</div>
+            <div class="itemValue"><%= @demo.name %></div>
+          </li>
+          
+          <li>
+                  <div class="itemLabel">Name</div>
+                  <div class="itemValue"><%= @demo.booth_id %></div>
+                </li>
+    </ul>
+  </div>
+
+</div>

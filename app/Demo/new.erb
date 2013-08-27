@@ -1,0 +1,45 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @demo.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @demo.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="demo[avg_user_rating]" class="fieldLabel">Avg user rating</label>
+            <input type="text" id="demo[avg_user_rating]" name="demo[avg_user_rating]" <%= placeholder("Avg user rating") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="demo[description]" class="fieldLabel">Description</label>
+            <input type="text" id="demo[description]" name="demo[description]" <%= placeholder("Description") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="demo[keywords]" class="fieldLabel">Keywords</label>
+            <input type="text" id="demo[keywords]" name="demo[keywords]" <%= placeholder("Keywords") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="demo[misc]" class="fieldLabel">Misc</label>
+            <input type="text" id="demo[misc]" name="demo[misc]" <%= placeholder("Misc") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="demo[name]" class="fieldLabel">Name</label>
+            <input type="text" id="demo[name]" name="demo[name]" <%= placeholder("Name") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

@@ -1,17 +1,39 @@
+
 <div data-role="page" data-add-back-btn="false">
 
   <div data-role="header" data-position="inline">
-    <h1><%= @demo.avg_user_rating %></h1>
+    <h1><%= @demo.avg_user_rating %>
+    <script src="/public/star/jquery.js" type="text/javascript"></script>
+    <script src="/public/star/jquery.MetaData.js" type="text/javascript" language="javascript"></script>
+    <script src="/public/star/jquery.rating.js" type="text/javascript" language="javascript"></script>
+    <link href="/public/star/jquery.rating.css" type="text/css" rel="stylesheet"/>
+    <link type="text/css" href="/@/js/jquery/ui/jquery.ui.css" rel="stylesheet" />
+
+    </h1>
     <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
       Back
     </a>
-    <a href="<%= url_for :action => :edit, :id => @demo.object %>" class="ui-btn-right" data-icon="star">
+   <!-- <a href="<%= url_for :action => :edit, :id => @demo.object %>" class="ui-btn-right" data-icon="star">
       Edit
-    </a>
+    </a> -->
   </div>
 
   <div data-role="content">
-    <ul data-role="listview">
+      <form method="POST" id="showDemo" action="<%= url_for :action => :updateRating %>">
+      <script>
+        $(function(){
+        $('.auto-submit-star').rating({
+          callback: function(value, link){
+             alert(value);
+             document.getElementById('userRatingValue').value = value;
+             document.getElementById('showDemo').submit();
+                       }
+               });
+           });
+       </script>
+       
+      <input type="hidden" name="id" value="<%= @demo.object %>"/>
+      <ul data-role="listview">
       
           <li>
             <div class="itemLabel">AvgUserRating</div>
@@ -39,10 +61,33 @@
           </li>
           
           <li>
-                  <div class="itemLabel">Name</div>
-                  <div class="itemValue"><%= @demo.booth_id %></div>
-                </li>
-    </ul>
+            <div class="itemLabel">Name Twice</div>
+            <div class="itemValue"><%= @demo.booth_id %></div>
+          </li>
+          
+          <input type="hidden" id="userRatingValue" name="userRatingValue" value=""  />
+     
+         
+                 
+                 
+          <li>
+             <table width="100%" cellspacing="10"> <tr>
+               <td valign="top" width="">
+             <div class="Clear">
+                
+                 <input class="auto-submit-star" type="radio" name="test-3A-rating-1" value="1"/>
+                 <input class="auto-submit-star" type="radio" name="test-3A-rating-1" value="2" checked="checked"/>
+                 <input class="auto-submit-star" type="radio" name="test-3A-rating-1" value="3"/>
+                </div>
+               
+               </td>
+              
+              </tr>
+             </table>
+           </li>
+           </ul>
+      </form> 
   </div>
-
+    
+    
 </div>

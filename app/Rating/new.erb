@@ -1,0 +1,35 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @rating.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @rating.object %>"/>
+
+      
+          <div data-role="fieldcontain">
+            <label for="rating[username]" class="fieldLabel">Username</label>
+            <input type="text" id="rating[username]" name="rating[username]" <%= placeholder("Username") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="rating[demoid]" class="fieldLabel">Demoid</label>
+            <input type="text" id="rating[demoid]" name="rating[demoid]" <%= placeholder("Demoid") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="rating[rating]" class="fieldLabel">Rating</label>
+            <input type="text" id="rating[rating]" name="rating[rating]" <%= placeholder("Rating") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

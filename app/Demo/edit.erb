@@ -1,7 +1,14 @@
+
+ 
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
-    <h1>Edit <%= @demo.avg_user_rating %></h1>
+    <h1>Edit <%= @demo.avg_user_rating %><script src="/public/star/jquery.js" type="text/javascript"></script>
+<script src="/public/star/jquery.MetaData.js" type="text/javascript" language="javascript"></script>
+ <script src="/public/star/jquery.rating.js" type="text/javascript" language="javascript"></script>
+ <link href="/public/star/jquery.rating.css" type="text/css" rel="stylesheet"/>
+<link type="text/css" href="/@/js/jquery/ui/jquery.ui.css" rel="stylesheet" />
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript"></script></h1>
     <a href="<%= url_for :action => :show, :id => @demo.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
       Cancel
     </a>
@@ -38,9 +45,57 @@
             <label for="demo[name]" class="fieldLabel">Name</label>
             <input type="text" id="demo[name]" name="demo[name]" value="<%= @demo.name %>" <%= placeholder( "Name" ) %> />
           </div>
+          
+              <div data-role="fieldcontain">
+                <label class="fieldLabel">rating</label>
+                <input type="text" id="rating" name="rating" value="" <%= placeholder( "rating" ) %> />
+              </div>
       
+              
       <input type="submit" value="Update"/>
     </form>
+    
   </div>
 
+              <div>
+                        <form id="form3A">
+                      <!--  <script>
+                        $(function(){
+                         $('.auto-submit-star').rating({
+                          callback: function(value, link){
+                           // 'this' is the hidden form element holding the current value
+                           // 'value' is the value selected
+                           // 'element' points to the link element that received the click.
+                          // alert("The value selected was '" + value + "'\n\nWith this callback function I can automatically submit the form with this code:\nthis.form.submit();");
+                          
+                          alert(value);
+                           
+                           // To submit the form automatically:
+                           //this.form.submit();
+                           
+                           // To submit the form via ajax:
+                           //$(this.form).ajaxSubmit();
+                          }
+                         });
+                        });
+                        </script> -->
+                       
+                        <table width="100%" cellspacing="10"> <tr>
+                          <td valign="top" width="">
+                        <div class="Clear">
+                           
+                            <input class="auto-submit-star" type="radio" name="test-3A-rating-1" value="1"/>
+                            <input class="auto-submit-star" type="radio" name="test-3A-rating-1" value="2" checked="checked"/>
+                            <input class="auto-submit-star" type="radio" name="test-3A-rating-1" value="3"/>
+                           </div>
+                           <div class="Clear">
+                        
+                           </div>
+                          </td>
+                         
+                         </tr>
+                        </table>
+                        </form>
+              
+              </div>
 </div>

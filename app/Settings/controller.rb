@@ -1,4 +1,3 @@
-require 'rho'
 require 'rho/rhocontroller'
 require 'rho/rhoerror'
 require 'helpers/browser_helper'
@@ -21,6 +20,7 @@ class SettingsController < Rho::RhoController
     errCode = @params['error_code'].to_i
     if errCode == 0
       # run sync if we were successful
+      
       WebView.navigate Rho::RhoConfig.options_path
       SyncEngine.dosync
     else
@@ -37,9 +37,10 @@ class SettingsController < Rho::RhoController
   end
 
   def do_login
-    if @params['login'] and @params['password']
+    if @params['login']# and @params['password']
       begin
         SyncEngine.login(@params['login'], @params['password'], (url_for :action => :login_callback) )
+        Rho::Application.title = @params['login']   
         @response['headers']['Wait-Page'] = 'true'
         render :action => :wait
       rescue Rho::RhoError => e

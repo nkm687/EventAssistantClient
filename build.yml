@@ -20,8 +20,9 @@ symbian:
   uid: "0xe9110154"
 android:
   version: "2.3.3"
-  capabilities:
+  capabilities: 
+  emulator: "helo"
 extensions:
   - rhoconnect-client
   - rhoconnect-push
-capabilities:
+capabilities: 

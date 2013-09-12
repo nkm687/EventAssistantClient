@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<script src='jquery.js' type="text/javascript"></script>
+<script src='jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+ <script src='jquery.rating.js' type="text/javascript" language="javascript"></script>
+ <link href='jquery.rating.css' type="text/css" rel="stylesheet"/>
+ <link type="text/css" href="/@/js/jquery/ui/jquery.ui.css" rel="stylesheet" />
+ <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript"></script>
+
+</head>
+<form>
+<script>
+$(function(){
+ $('.star').rating({
+  callback: function(value, link){
+   // 'this' is the hidden form element holding the current value
+   // 'value' is the value selected
+   // 'element' points to the link element that received the click.
+  
+  // alert("The value selected was '" + value + "'\n\nWith this callback function I can automatically submit the form with this code:\nthis.form.submit();");
+  alert(value);
+   
+   // To submit the form automatically:
+   //this.form.submit();
+   
+   // To submit the form via ajax:
+   //$(this.form).ajaxSubmit();
+  }
+ });
+});
+</script>
+  <div class="Clear">
+       <input name="star1" type="radio" class="star" value="0"/>
+       <input name="star1" type="radio" class="star" value="1"/>
+       <input name="star1" type="radio" class="star" value="2"/>
+       <input name="star1" type="radio" class="star" value="3"/>
+       <input name="star1" type="radio" class="star" value="4"/>
+	       
+	   </div>
+	     <div class="Clear">
+    <pre class="code"><code class="js">$('.star').rating({
+  callback: function(value, link){
+    alert(value);
+  }
+});</code></pre>
+   </form>
+   </html>

@@ -14,7 +14,7 @@ class DemoController < Rho::RhoController
   def show
     @demo = Demo.find(@params['id'])
     if @demo
-      render :action => :show, :back => url_for(:action => :index)
+     render :action => :show, :back => url_for(:action => :index)
     else
       redirect :action => :index
     end
@@ -39,7 +39,11 @@ class DemoController < Rho::RhoController
   # POST /Demo/create
   def create
     @demo = Demo.create(@params['demo'])
-    redirect :action => :index
+   # session[:rating] = @params['rating']
+   #   session[:demoid] = @demo.id
+      #AppApplication.rating =  @params['rating']
+      
+    redirect :controller => :Userrating, :action => :updateRating, :query => {:rating => 1, :demoid =>1}  
   end
 
   # POST /Demo/{1}/update
@@ -55,4 +59,11 @@ class DemoController < Rho::RhoController
     @demo.destroy if @demo
     redirect :action => :index  
   end
+  
+  def updateRating
+    demoid = @params['id']
+    rating = @params['userRatingValue']
+    redirect :controller => :Userrating, :action => :updateRating, :query => {:rating => rating, :demoid => demoid}        
+  end
+  
 end

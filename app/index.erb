@@ -17,7 +17,8 @@
 
   <div data-role="content">
     <ul data-role="listview">
-      <li><a href="<%= url_for :controller => :Presenter, :action => :index %>">Presenters</a></li>
+       <li> Welcome <%= Rho::Application.title %> </li>  
+     <li><a href="<%= url_for :controller => :Userrating, :action => :index %>">Ratings</a></li>
     
       <li><a href="<%= url_for :controller => :Demo, :action => :index %>">Demos</a></li>
     </ul>

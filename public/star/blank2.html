@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<script src='jquery.js' type="text/javascript"></script>
+<script src='jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+ <script src='jquery.rating.js' type="text/javascript" language="javascript"></script>
+ <link href='jquery.rating.css' type="text/css" rel="stylesheet"/>
+ <link type="text/css" href="/@/js/jquery/ui/jquery.ui.css" rel="stylesheet" />
+ <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript"></script>
+
+</head><form id="form3A">
+<script>
+$(function(){
+ $('.auto-submit-star').rating({
+  callback: function(value, link){
+   // 'this' is the hidden form element holding the current value
+   // 'value' is the value selected
+   // 'element' points to the link element that received the click.
+  // alert("The value selected was '" + value + "'\n\nWith this callback function I can automatically submit the form with this code:\nthis.form.submit();");
+  
+  alert(value);
+   
+   // To submit the form automatically:
+   //this.form.submit();
+   
+   // To submit the form via ajax:
+   //$(this.form).ajaxSubmit();
+  }
+ });
+});
+</script>
+<strong style='font-size:150%'>Test 3-A</strong> - With callback
+<table width="100%" cellspacing="10"> <tr>
+  <td valign="top" width="">
+<div class="Clear">
+    Rating 1:
+    (1 - 3, default 2)
+    <input class="auto-submit-star" type="radio" name="test-3A-rating-1" value="1"/>
+    <input class="auto-submit-star" type="radio" name="test-3A-rating-1" value="2" checked="checked"/>
+    <input class="auto-submit-star" type="radio" name="test-3A-rating-1" value="3"/>
+   </div>
+   <div class="Clear">
+  <!--  <pre class="code"><code class="js">$('.auto-submit-star').rating({
+  callback: function(value, link){
+    alert(value);
+  }
+});</code></pre>-->
+   </div>
+  </td>
+  <td valign="top" width="5">&nbsp;</td>  <td valign="top" width="50">
+   <input type="submit" value="Submit scores!" />  </td>
+  <td valign="top" width="5">&nbsp;</td>  <td valign="top" width="160">
+   <u>Test results</u>:<br/><br/>
+   <div class="test Smaller">
+    <span style="color:#FF0000">Results will be displayed here</span>
+   </div>
+  </td>
+ </tr>
+</table>
+</form>

@@ -1,0 +1,36 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @userrating.name %></h1>
+    <a href="<%= url_for :action => :show, :id => @userrating.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+    <a href="<%= url_for :action => :delete, :id => @userrating.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">
+      Delete
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @userrating.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="userrating[name]" class="fieldLabel">Name</label>
+            <input type="text" id="userrating[name]" name="userrating[name]" value="<%= @userrating.name %>" <%= placeholder( "Name" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="userrating[demo]" class="fieldLabel">Demo</label>
+            <input type="text" id="userrating[demo]" name="userrating[demo]" value="<%= @userrating.demo %>" <%= placeholder( "Demo" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="userrating[rating]" class="fieldLabel">Rating</label>
+            <input type="text" id="userrating[rating]" name="userrating[rating]" value="<%= @userrating.rating %>" <%= placeholder( "Rating" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

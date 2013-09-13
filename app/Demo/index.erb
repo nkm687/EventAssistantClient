@@ -7,7 +7,7 @@
     {
       
       var key=document.getElementById('textid').value ;
-      var totallist;
+      var totallist='';
       var listnode='<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-first-child ui-btn-up-c"> <div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="#" class="ui-link-inherit" class="ui-link-inherit">feb999</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>'
        
       
@@ -15,26 +15,29 @@
      
      $("#listviewid").find('li').each(function(){
       //  alert($(this).html());
-      //  listnode='';
+        listnode='';
        // alert(key);
-       alert($(this).text().toLowerCase().indexOf(key));
+      // alert($(this).text().toLowerCase().indexOf(key));
         
-     /*   if( $(this).text().toLowerCase().indexOf(key) >=0 )
+       if( $(this).text().toLowerCase().indexOf(key) >=0 )
         { 
-          listnode=$(this).html();
-            
-            alert(listnode);
-        
+          //listnode=$(this).html();
+          //listnode=$(this).wrap('<li data-corners ="false" data-shadow = "false" data-iconshadow= "true" data-wrapperels ="div" data-icon= "arrow-r" data-iconpos= "right" data-theme= "c" class= "ui-btn ui-btn-up-c ui-btn-icon-right ui-li-has-arrow ui-li "/>').parent().html();
+          listnode=$(this).wrap('<p/>').parent().html();
+          
+        //alert(listnode);
             totallist=totallist+listnode;
-            alert(totallist);
+          //  alert(totallist);
             
-        }*/ 
+        }
         
        
           
       });  
       
-       $("#listviewid").append(totallist);
+       $("#listviewid").html('');
+       alert(totallist);
+      $("#listviewid").append(totallist);
       
     }
     </script></h1>

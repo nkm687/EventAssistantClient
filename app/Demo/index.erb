@@ -1,7 +1,43 @@
 <div data-role="page">
 
 	<div data-role="header" data-position="inline">
-    <h1>Demos</h1>
+    <h1>Demos
+    <script>
+    function dosearch()
+    {
+      
+      var key=document.getElementById('textid').value ;
+      var totallist;
+      var listnode='<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-first-child ui-btn-up-c"> <div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="#" class="ui-link-inherit" class="ui-link-inherit">feb999</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>'
+       
+      
+  //   $("#listviewid").append(listnode);
+     
+     $("#listviewid").find('li').each(function(){
+      //  alert($(this).html());
+      //  listnode='';
+       // alert(key);
+       alert($(this).text().toLowerCase().indexOf(key));
+        
+     /*   if( $(this).text().toLowerCase().indexOf(key) >=0 )
+        { 
+          listnode=$(this).html();
+            
+            alert(listnode);
+        
+            totallist=totallist+listnode;
+            alert(totallist);
+            
+        }*/ 
+        
+       
+          
+      });  
+      
+       $("#listviewid").append(totallist);
+      
+    }
+    </script></h1>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       Home
     </a>
@@ -9,9 +45,21 @@
       New
     </a> -->
 	</div>
+    <!-- <div>
+                      <input type="text" id="textid" style="width:200px;color: red; background-color: lightyellow;margin-left:85px"/>
+                      <input type="button" value="search" onclick="dosearch();" style="margin-left:5px;width:10px" />
+                       
+              </div>-->
 
   <div data-role="content">
-    <ul data-role="listview">
+    <ul data-role="listview" id="listviewid">
+    <table>
+    <tr>
+     <td><input type="text" id="textid" style="width:200px;color: red; background-color: lightyellow;margin-left:35px"/></td>
+                          <td><input type="button" value="search" onclick="dosearch();" style="margin-left:5px;width:100px" />
+       </tr>                    
+    </table>
+   
       <% @demos.each do |demo| %>
       
           <li>

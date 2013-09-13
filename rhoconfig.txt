@@ -48,10 +48,10 @@ LastVisitedPage = ''
 # sync server url, typically this will look like 'http://<hostname>:<port>'
 # for example: 'http://localhost:9292'
 #syncserver = 'http://10.186.2.137:9292'
-syncserver = 'http://localhost:9292'
+syncserver = 'http://157.235.203.143:9292'
 
 #rhoconnect_push_server = 'http://10.186.2.137:8675'
-rhoconnect_push_server = 'http://localhost:8675'
+rhoconnect_push_server = 'http://157.235.203.143:8675'
 rhoconnect_push_appname = helo
 
 # geo location inactivity timeout (in seconds)
